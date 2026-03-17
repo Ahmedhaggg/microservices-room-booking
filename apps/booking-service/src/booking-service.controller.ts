@@ -9,4 +9,9 @@ export class BookingServiceController {
   getHello(): string {
     return this.bookingServiceService.getHello();
   }
+
+  @Get('health/db')
+  getDatabaseHealth(): Promise<{ service: string; database: string }> {
+    return this.bookingServiceService.getDatabaseHealth();
+  }
 }

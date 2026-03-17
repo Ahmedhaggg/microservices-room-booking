@@ -9,4 +9,9 @@ export class NotificationServiceController {
   getHello(): string {
     return this.notificationServiceService.getHello();
   }
+
+  @Get('health/db')
+  getDatabaseHealth(): Promise<{ service: string; database: string }> {
+    return this.notificationServiceService.getDatabaseHealth();
+  }
 }
