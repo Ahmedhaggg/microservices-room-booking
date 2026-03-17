@@ -9,4 +9,9 @@ export class RoomsServiceController {
   getHello(): string {
     return this.roomsServiceService.getHello();
   }
+
+  @Get('health/db')
+  getDatabaseHealth(): Promise<{ service: string; database: string }> {
+    return this.roomsServiceService.getDatabaseHealth();
+  }
 }
