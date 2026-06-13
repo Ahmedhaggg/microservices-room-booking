@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { RoomsServiceService } from './rooms-service.service';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { RoomsServiceService, type CreateRoomRequest } from './rooms-service.service';
 
 @Controller()
 export class RoomsServiceController {
@@ -13,5 +13,10 @@ export class RoomsServiceController {
   @Get('health/db')
   getDatabaseHealth(): Promise<{ service: string; database: string }> {
     return this.roomsServiceService.getDatabaseHealth();
+  }
+
+  @Post('rooms')
+  createRoom(@Body() body: CreateRoomRequest) {
+    return this.roomsServiceService.createRoom(body);
   }
 }
